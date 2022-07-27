@@ -31,5 +31,4 @@
             "type": "coreclr",
             "request": "attach"
         }
-    ]
 }

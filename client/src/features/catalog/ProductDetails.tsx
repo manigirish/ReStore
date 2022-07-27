@@ -1,7 +1,8 @@
 import { Divider, Grid, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import agent from "../../app/api/agent";
+import LoadingComponent from "../../app/layout/LoadingComponent";
 import { Product } from "../../app/models/product";
 
 export default function ProductDetails() {
@@ -11,13 +12,13 @@ export default function ProductDetails() {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5216/api/Products/${id}`)
-        .then(response => setProduct(response.data))
+        agent.Catalog.details(parseInt(id))
+        .then(response => setProduct(response))
         .catch(error => console.log(error))
         .finally(() => setLoading(false));
     }, [id])
 
-    if (loading) return <h3>Loading...</h3> 
+    if (loading) return <LoadingComponent message='Loading Products...'/>
 
     if (!product) return <h3>Product not found</h3>
 
