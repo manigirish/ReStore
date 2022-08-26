@@ -6,7 +6,7 @@ import NotFound from "../../app/errors/NotFound";
 import LoadingComponent from "../../app/layout/LoadingComponent";
 import { useAppDispatch, useAppSelector } from "../../app/store/configureStore";
 import { addBasketItemAsync, removeBasketItemAsync } from "../basket/basketSlice";
-import { fetchProcuctAsync, productSelectors } from "./catalogSlice";
+import { fetchProductAsync, productSelectors } from "./catalogSlice";
 
 export default function ProductDetails() {
     const {basket, status} = useAppSelector(state => state.basket);
@@ -20,7 +20,7 @@ export default function ProductDetails() {
 
     useEffect(() => {
         if(item) setQuantity(item.quantity);
-        if (!product) dispatch(fetchProcuctAsync(parseInt(id)));
+        if (!product) dispatch(fetchProductAsync(parseInt(id)));
     }, [id, item, dispatch, product])
 
     function handleInputChange(event: any) {
