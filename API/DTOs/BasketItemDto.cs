@@ -8,7 +8,7 @@ namespace API.DTOs
 
         public long Price { get; set; }
 
-        public string PictureUtl { get; set; }
+        public string PictureUrl { get; set; }
 
         public string Brand { get; set; }
 
