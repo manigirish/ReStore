@@ -2,7 +2,7 @@
         productId: number;
         name: string;
         price: number;
-        pictureUtl: string;
+        pictureUrl: string;
         brand: string;
         type: string;
         quantity: number;
